@@ -1,6 +1,6 @@
 # Interactive Triangle Learning - By Ram Bapat 📐✨
 
-## Try live demo - [Demo Link Here]
+## Try live demo - [https://interactive-triangle-learning.vercel.app/]
 
 An interactive and visually engaging web application built with React and Vite to teach fundamental triangle concepts, developed as part of the "30 Days of Vibe Coding" challenge.
 
