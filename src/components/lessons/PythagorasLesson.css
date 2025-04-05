@@ -1,0 +1,268 @@
+/* src/components/lessons/PythagorasLesson.css */
+
+.pythagoras-lesson {
+    /* Relies on .card styles from index.css */
+}
+
+.pythagoras-lesson h2 {
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.pythagoras-lesson .formula {
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+    margin: var(--spacing-sm) 0 var(--spacing-lg) 0;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: rgba(var(--color-primary-rgb), 0.1);
+    border-radius: var(--border-radius-md);
+    display: inline-block; /* Center the block */
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    color: var(--color-primary-dark);
+}
+
+.lesson-interactive-area {
+    display: flex;
+    flex-direction: column; /* Default: stack controls and visual */
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+    align-items: center;
+}
+
+.lesson-controls {
+    width: 100%;
+    max-width: 400px; /* Limit controls width */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.lesson-controls p:first-of-type { /* Target the instruction paragraph */
+    color: var(--color-text-light);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+
+.control-group {
+    display: flex; /* Use flex for label and input alignment */
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.control-group label {
+    flex-basis: 60px; /* Fixed width for labels */
+    text-align: right;
+    margin-bottom: 0; /* Remove default label margin */
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.control-group input[type="number"] {
+    flex-grow: 1; /* Input takes remaining space */
+    border-color: var(--color-border); /* Default border */
+}
+
+.control-group input.input-error {
+    border-color: #e74c3c; /* Red border for error */
+    box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.2); /* Subtle red glow */
+}
+
+.control-group.number-group { /* Specificity for number group */
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.control-group.number-group label {
+    flex-basis: 60px;
+    text-align: right;
+    margin-bottom: 0;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.control-group.number-group input[type="number"] {
+    flex-grow: 1;
+}
+
+
+.error-message {
+    color: #e74c3c; /* Red error text */
+    font-size: 0.9em;
+    text-align: center;
+    font-weight: 500;
+    margin-top: var(--spacing-sm);
+}
+
+.lesson-results {
+    margin-top: var(--spacing-lg);
+    padding: var(--spacing-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    background-color: rgba(var(--color-primary-rgb), 0.05);
+}
+
+.lesson-results h4 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    text-align: center;
+}
+
+.lesson-results p {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1em;
+    color: var(--color-text);
+    line-height: 1.5;
+}
+.lesson-results p:last-child {
+    margin-bottom: 0;
+}
+
+.hypotenuse-result {
+    font-weight: 600;
+    margin-top: var(--spacing-md) !important; /* Add more space above */
+}
+
+.highlight {
+    color: var(--color-secondary); /* Use theme secondary color */
+    font-weight: 700;
+}
+.calculated-value { /* Can be same as highlight or different */
+    font-size: 1.1em;
+    padding: 0 4px;
+}
+
+
+.lesson-visual {
+    width: 100%;
+    max-width: 350px; /* Control max size */
+    aspect-ratio: 1 / 1; /* Keep it square */
+    margin: 0 auto; /* Center visual */
+}
+
+.lesson-visual svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible; /* Allow labels slightly outside */
+}
+
+.visual-triangle {
+    fill: rgba(var(--color-primary-rgb), 0.2);
+    stroke: var(--color-primary);
+    stroke-width: 2;
+    transition: all 0.2s ease-out, fill 0.3s ease, stroke 0.3s ease; /* Smooth transition */
+}
+
+.right-angle-marker {
+    fill: none;
+    stroke: var(--color-text-light);
+    stroke-width: 1.5;
+}
+
+.visual-text.side-label {
+    font-size: 12px;
+    font-weight: 500;
+    fill: var(--color-text);
+    transition: fill 0.3s ease;
+}
+.visual-text.hypotenuse-label {
+    font-style: italic;
+    font-weight: 600;
+}
+
+/* Responsive: Side-by-side layout on larger screens */
+@media (min-width: 768px) {
+    .lesson-interactive-area {
+        flex-direction: row;
+        align-items: flex-start; /* Align tops */
+        justify-content: space-around;
+        gap: var(--spacing-xl);
+    }
+    .lesson-controls {
+        flex-basis: 45%;
+        max-width: none;
+    }
+    .lesson-visual {
+        flex-basis: 45%;
+        max-width: 400px;
+        margin: 0; /* Remove auto margin */
+    }
+}
+
+.input-mode-toggle {
+    display: flex; /* Align icon and text */
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin: 0 auto var(--spacing-lg) auto; /* Center button */
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-weight: 500;
+    /* Use secondary color for toggles? */
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+.input-mode-toggle:hover {
+    opacity: 0.9;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+/* Dark theme adjustment if secondary color needs different text color */
+[data-theme="dark"] .input-mode-toggle {
+   /* background-color: var(--color-secondary-dark-theme); */
+   /* color: #333; /* Darker text on gold background? Adjust as needed */
+}
+
+.input-mode-label {
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-lg); /* Space below label */
+}
+
+
+/* Container for slider/number inputs for spacing */
+.slider-controls, .number-controls {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md); /* Space between input groups */
+}
+
+/* Styles for Slider Group (similar to Angle Sum) */
+.slider-group {
+    display: grid;
+    grid-template-columns: 60px 1fr 50px; /* Fixed Label | Slider | Fixed Value */
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.slider-group label {
+    flex-basis: auto; /* Override flex basis from number input */
+    text-align: right;
+    padding-right: var(--spacing-sm);
+    margin-bottom: 0;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.slider-group input[type="range"] {
+    /* Base styling inherited from index.css */
+    width: 100%;
+}
+
+.slider-group .control-value {
+    font-weight: 600;
+    text-align: right;
+    color: var(--color-text);
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

@@ -1,0 +1,141 @@
+/* src/components/lessons/AngleSumLesson.css */
+
+.angle-sum-lesson {
+  /* This component now relies on the .card class added in the JSX */
+  /* Styles previously here for card appearance are now in index.css */
+  text-align: center;
+}
+
+.angle-sum-lesson h2 {
+    /* Use primary color from theme */
+    color: var(--color-primary);
+}
+
+.lesson-interactive-area {
+  display: flex;
+  flex-direction: column; /* Default: stack controls and visual */
+  gap: var(--spacing-xl);
+  margin-top: var(--spacing-lg);
+  align-items: center; /* Center items in column layout */
+}
+
+.lesson-controls {
+  width: 100%;
+  max-width: 450px; /* Limit controls width */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.control-group {
+  display: grid;
+  grid-template-columns: 60px 1fr 50px; /* Fixed Label | Slider | Fixed Value */
+  align-items: center;
+  gap: var(--spacing-md);
+  text-align: left; /* Align label left */
+}
+
+.control-group label {
+    margin-bottom: 0; /* Remove bottom margin since grid handles spacing */
+    font-weight: 500;
+    color: var(--color-primary); /* Use theme primary color */
+    text-align: right; /* Right align label text */
+    padding-right: var(--spacing-sm); /* Space between label and slider */
+}
+
+.control-group input[type="range"] {
+    /* Base styling inherited from index.css */
+    width: 100%; /* Ensure slider fills grid area */
+}
+
+.control-value {
+  font-weight: 600;
+  text-align: right;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums; /* Keep numbers aligned */
+}
+
+.lesson-results {
+  margin-top: var(--spacing-md);
+  text-align: center;
+}
+.lesson-results p {
+    color: var(--color-text); /* Use standard text color */
+    font-size: 1.1em;
+}
+
+
+.calculated-value {
+  color: var(--color-secondary); /* Highlight calculated value (theme secondary) */
+  font-weight: 700; /* Make it bolder */
+  padding: 0 4px;
+}
+
+.total-sum {
+  display: inline-block;
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  background-color: rgba(var(--color-primary-rgb, 74, 144, 226), 0.1); /* Use primary color alpha */
+  border-radius: var(--border-radius-md);
+  color: var(--color-primary-dark); /* Use darker primary for text */
+  font-size: 1.15em;
+  font-weight: 600;
+  border: 1px solid rgba(var(--color-primary-rgb, 74, 144, 226), 0.2);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+/* Add RGB variable for easier alpha colors */
+:root { --color-primary-rgb: 74, 144, 226; }
+[data-theme="dark"] { --color-primary-rgb: 100, 149, 237; }
+/* --- */
+
+
+.lesson-visual {
+  width: 100%;
+  max-width: 350px; /* Max size */
+  aspect-ratio: 300 / 180; /* Match viewBox ratio */
+}
+
+.lesson-visual svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* Allow labels slightly outside */
+}
+
+.visual-triangle {
+  fill: rgba(var(--color-primary-rgb), 0.25); /* Use primary color alpha */
+  stroke: var(--color-primary);
+  stroke-width: 2.5;
+  stroke-linejoin: round;
+  transition: all 0.1s linear, fill 0.3s ease, stroke 0.3s ease; /* Add theme transitions */
+}
+
+.visual-text {
+  font-size: 13px;
+  font-weight: 500;
+  fill: var(--color-text); /* Use theme text color */
+  /* text-anchor is set dynamically in JSX */
+  dominant-baseline: middle;
+  transition: fill 0.3s ease; /* Theme transition for text */
+  pointer-events: none; /* Prevent text interfering with interaction */
+}
+
+/* Responsive: Side-by-side layout on larger screens */
+@media (min-width: 768px) {
+  .lesson-interactive-area {
+    flex-direction: row;
+    align-items: center; /* Vertically center align items */
+    justify-content: space-around; /* Distribute space */
+    gap: var(--spacing-xl);
+  }
+  .lesson-controls {
+    flex-basis: 45%; /* Take slightly less than half */
+    max-width: none; /* Remove max-width */
+  }
+  .lesson-visual {
+    flex-basis: 45%; /* Take slightly less than half */
+    max-width: 400px; /* Allow slightly larger visual */
+  }
+}
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

@@ -1,0 +1,85 @@
+/* src/pages/HomePage.css */
+
+.home-page-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  
+
+  .enhanced-intro {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-lg); /* More vertical padding */
+    position: relative; /* Needed for potential pseudo-elements */
+    overflow: hidden; /* Hide overflow from gradients/patterns */
+  
+    background: linear-gradient(135deg, var(--color-card-bg) 0%, rgba(var(--color-primary-rgb), 0.05) 100%);
+  
+  
+    border: none; /* Remove default card border if desired */
+    box-shadow: 0 6px 18px rgba(var(--color-primary-rgb), 0.15); /* Soft shadow */
+  }
+  
+  /* Dark theme adjustments for gradient */
+  [data-theme="dark"] .enhanced-intro {
+     background: linear-gradient(135deg, var(--color-card-bg-dark-theme) 0%, rgba(var(--color-primary-rgb), 0.1) 100%);
+     box-shadow: 0 6px 18px rgba(0,0,0, 0.2);
+  }
+  
+  
+  .intro-icon {
+      font-size: 2.5rem; /* Icon size */
+      color: var(--color-secondary); /* Use accent color */
+      margin-bottom: var(--spacing-sm);
+  }
+   [data-theme="dark"] .intro-icon {
+      color: var(--color-secondary-dark-theme);
+   }
+  
+  
+  .enhanced-intro h2 {
+    color: var(--color-primary); /* Keep primary color */
+    font-size: 2.2em; /* Slightly larger heading */
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+  }
+  [data-theme="dark"] .enhanced-intro h2 {
+       color: var(--color-primary-dark-theme);
+  }
+  
+  .enhanced-intro .intro-subtitle {
+      font-size: 1.2em;
+      color: var(--color-text); /* Slightly darker than regular paragraph */
+      margin-bottom: var(--spacing-md);
+      font-weight: 500;
+  }
+   [data-theme="dark"] .enhanced-intro .intro-subtitle {
+      color: var(--color-text-dark-theme);
+   }
+  
+  
+  .enhanced-intro p:not(.intro-subtitle) { /* Style the last paragraph */
+      font-size: 1em;
+      color: var(--color-text-light);
+      max-width: 600px; /* Limit width for readability */
+      margin-left: auto;
+      margin-right: auto;
+  }
+   [data-theme="dark"] .enhanced-intro p:not(.intro-subtitle) {
+       color: var(--color-text-light-dark-theme);
+   }
+  
+  
+  
+  
+  .lesson-section {
+    padding-top: var(--spacing-lg);
+    min-height: 50vh;
+  }
+
+  
+  .lesson-section > .card {
+    width: 100%;
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

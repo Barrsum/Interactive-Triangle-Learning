@@ -1,0 +1,285 @@
+/* src/index.css */
+
+/* 1. Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* 2. Define CSS Variables (Theme) */
+:root {
+  /* Font */
+  --font-primary: 'Poppins', sans-serif;
+
+  /* Colors - Light Theme (Defaults) */
+  --color-primary: #4a90e2; /* A nice blue */
+  --color-primary-dark: #357abd;
+  --color-secondary: #f5a623; /* Orange accent */
+  --color-success: #7ed321; /* Green for success/completion */
+  --color-text: #333333; /* Dark grey text */
+  --color-text-light: #666666;
+  --color-background: #f4f7f9; /* Light grey background */
+  --color-card-bg: #ffffff; /* White for cards */
+  --color-border: #e0e0e0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+
+  /* Colors - Dark Theme Variables (used by [data-theme="dark"]) */
+  --color-primary-dark-theme: #6495ED; /* Cornflower Blue for dark */
+  --color-primary-dark-hover-dark-theme: #87CEFA; /* Lighter blue for hover in dark */
+  --color-secondary-dark-theme: #FFD700; /* Gold accent for dark */
+  --color-text-dark-theme: #e0e0e0;
+  --color-text-light-dark-theme: #b0b0b0;
+  --color-background-dark-theme: #1a1d24; /* Dark background */
+  --color-card-bg-dark-theme: #2c303a;   /* Slightly lighter card */
+  --color-border-dark-theme: #444958;
+  --color-shadow-dark-theme: rgba(0, 0, 0, 0.3); /* Slightly darker shadow for contrast */
+
+  /* Spacing & Radius */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem;  /* 8px */
+  --spacing-md: 1rem;    /* 16px */
+  --spacing-lg: 1.5rem;  /* 24px */
+  --spacing-xl: 2rem;    /* 32px */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: all 0.2s ease-in-out;
+
+  /* Default font settings (applied later) */
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Basic Reset & Box Sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* 4. Body Styling */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex; /* Needed for centering #root if desired */
+  flex-direction: column; /* Allow header/footer stacking */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth theme transition */
+}
+
+/* 5. Root Container Styling */
+#root {
+  width: 100%;
+  max-width: 1280px; /* Max container width */
+  margin: 0 auto; /* Center the container */
+  padding: var(--spacing-md) var(--spacing-lg); /* Padding around content */
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure #root takes available height */
+}
+
+/* 6. Basic Element Styling */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+  transition: color 0.3s ease;
+}
+
+h1 { font-size: 2.5em; line-height: 1.1; }
+h2 { font-size: 1.8em; line-height: 1.2; margin-bottom: var(--spacing-lg); }
+h3 { font-size: 1.4em; line-height: 1.3; }
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-light);
+  transition: color 0.3s ease;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: var(--transition-fast);
+}
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+/* 7. Basic Form Control Styling */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background-color: var(--color-card-bg);
+  color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition-fast), background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+}
+
+button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+label {
+  display: block; /* Make labels block for better spacing */
+  margin-bottom: var(--spacing-sm);
+  font-weight: 500;
+  color: var(--color-text); /* Ensure label color changes with theme */
+  transition: color 0.3s ease;
+}
+
+input[type="range"] {
+  padding: 0; /* Remove default padding for range */
+  cursor: pointer;
+  accent-color: var(--color-primary); /* Modern way to color range sliders */
+  background-color: #e0e0e0; /* Default track background */
+  transition: background-color 0.3s ease, accent-color 0.3s ease;
+  height: 8px;
+  border-radius: 4px;
+  appearance: none;
+  outline: none;
+}
+/* Style the slider thumb (cross-browser) - Base */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.15s ease-in-out;
+}
+input[type="range"]:hover::-webkit-slider-thumb {
+  background: var(--color-primary-dark);
+}
+input[type="range"]:hover::-moz-range-thumb {
+  background: var(--color-primary-dark);
+}
+
+
+/* Utility Class */
+.card {
+  background-color: var(--color-card-bg);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: 0 4px 12px var(--color-shadow);
+  border: 1px solid var(--color-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* --- Dark Theme Styles --- */
+[data-theme="dark"] {
+  /* Override root variables for dark mode */
+  --color-primary: var(--color-primary-dark-theme);
+  --color-primary-dark: var(--color-primary-dark-hover-dark-theme);
+  --color-secondary: var(--color-secondary-dark-theme);
+  --color-text: var(--color-text-dark-theme);
+  --color-text-light: var(--color-text-light-dark-theme);
+  --color-background: var(--color-background-dark-theme);
+  --color-card-bg: var(--color-card-bg-dark-theme);
+  --color-border: var(--color-border-dark-theme);
+  --color-shadow: var(--color-shadow-dark-theme);
+
+  /* Specific overrides */
+  button {
+      /* Primary button color already updated via variable */
+  }
+  button:hover {
+     /* Hover color already updated via variable */
+  }
+
+  input, select, textarea {
+      background-color: #3a3f4b; /* Darker input fields */
+      border-color: var(--color-border-dark-theme);
+      color: var(--color-text-dark-theme);
+  }
+
+   input[type="range"] {
+      accent-color: var(--color-primary-dark-theme);
+      background-color: #4f5563; /* Darker track */
+   }
+   input[type="range"]::-webkit-slider-thumb {
+      background: var(--color-primary-dark-theme);
+   }
+   input[type="range"]::-moz-range-thumb {
+      background: var(--color-primary-dark-theme);
+   }
+    input[type="range"]:hover::-webkit-slider-thumb {
+        background: var(--color-primary-dark-hover-dark-theme);
+    }
+    input[type="range"]:hover::-moz-range-thumb {
+        background: var(--color-primary-dark-hover-dark-theme);
+    }
+
+  /* Update visual colors */
+  .visual-triangle {
+      fill: rgba(100, 149, 237, 0.25); /* Primary dark theme color alpha */
+      stroke: var(--color-primary-dark-theme);
+      transition: fill 0.3s ease, stroke 0.3s ease;
+  }
+  .visual-text {
+      fill: var(--color-text-dark-theme);
+      transition: fill 0.3s ease;
+  }
+  .total-sum {
+      background-color: rgba(100, 149, 237, 0.15);
+      color: #ADD8E6; /* Lighter blue text for sum */
+      transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .calculated-value {
+      color: var(--color-secondary-dark-theme);
+       transition: color 0.3s ease;
+  }
+
+  /* Footer specific overrides */
+  .app-footer {
+      background-color: var(--color-card-bg-dark-theme); /* Use card bg for footer */
+      border-top-color: var(--color-border-dark-theme);
+      color: var(--color-text-light-dark-theme);
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  }
+  .app-footer a {
+       color: var(--color-primary-dark-theme); /* Link color in footer */
+  }
+  .app-footer .social-links a svg {
+      color: var(--color-text-light-dark-theme); /* Icon color */
+  }
+  .app-footer .social-links a:hover svg {
+      color: var(--color-primary-dark-theme); /* Icon hover */
+  }
+  .app-footer .connect-text {
+       color: var(--color-text-light-dark-theme);
+  }
+}
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

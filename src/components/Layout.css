@@ -1,0 +1,146 @@
+/* src/components/Layout.css */
+
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Crucial for sticky footer */
+  }
+  
+  .app-header {
+    background-color: var(--color-card-bg);
+    padding: var(--spacing-md) var(--spacing-lg);
+    box-shadow: 0 2px 5px var(--color-shadow);
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: var(--spacing-md); /* Space between logo and nav if they wrap */
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 10;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .logo a {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: var(--transition-fast);
+  }
+  .logo a:hover {
+      color: var(--color-primary-dark);
+      text-decoration: none; /* Keep underline off logo */
+  }
+  
+  .main-nav {
+    display: flex;
+    gap: var(--spacing-md); /* Spacing between nav links */
+    flex-wrap: wrap; /* Allow links to wrap */
+    margin: 0 auto; /* Center nav links if space allows */
+  }
+  
+  .nav-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text-light);
+    text-decoration: none;
+    border-radius: var(--border-radius-md);
+    font-weight: 500;
+    transition: var(--transition-fast);
+    border: 1px solid transparent; /* Placeholder for active border */
+  }
+  
+  .nav-link:hover {
+    background-color: rgba(var(--color-primary), 0.1); /* Use RGBA if primary has no alpha */
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  
+  /* Active styling for hash links is tricky with just CSS.
+     We might need JavaScript intersection observer later if required. */
+  /* .nav-link.active { ... } */
+  
+  .theme-toggle-button {
+      background: none;
+      border: none;
+      color: var(--color-text); /* Use text color, changes with theme */
+      cursor: pointer;
+      font-size: 1.4rem; /* Adjust size */
+      padding: var(--spacing-sm);
+      border-radius: 50%;
+      display: flex; /* Center icon */
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition-fast), color 0.3s ease;
+      margin-left: var(--spacing-sm); /* Space from nav */
+  }
+  
+  .theme-toggle-button:hover {
+      background-color: rgba(128, 128, 128, 0.1); /* Subtle grey hover */
+      color: var(--color-primary); /* Use primary color on hover */
+  }
+  /* Dark mode hover is handled implicitly by variable changes */
+  
+  
+  .app-content {
+    flex-grow: 1; /* Takes up remaining vertical space - Crucial for sticky footer */
+    padding-top: var(--spacing-xl); /* Space below header */
+    padding-bottom: var(--spacing-xl); /* Space above footer */
+    width: 100%; /* Ensure content takes full width */
+  }
+  
+  .app-footer {
+    /* Footer content styling is in Footer.css */
+    /* Layout styles are here (and in index.css implicitly via body) */
+    width: 100%;
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    /* Margin-top added in Footer.css to push content */
+  }
+  
+  /* Responsive Adjustments for Header */
+  @media (max-width: 768px) { /* Adjust breakpoint if needed */
+      .main-nav {
+          order: 1; /* Put nav below logo/toggle in source order wrap */
+          width: 100%;
+          justify-content: space-around; /* Distribute links */
+          margin: var(--spacing-sm) 0 0 0; /* Add top margin when wrapped */
+      }
+      .theme-toggle-button {
+          order: 0; /* Ensure toggle comes before nav in flex wrap */
+          margin-left: auto; /* Push toggle right */
+      }
+      .logo {
+           order: -1; /* Ensure logo is first */
+      }
+      /* Ensure full width nav items stack nicely */
+       .nav-link {
+          flex-grow: 1;
+          text-align: center;
+       }
+  }
+  
+  @media (max-width: 480px) { /* Even smaller screens */
+      .app-header {
+          flex-direction: column;
+          align-items: stretch; /* Stretch items full width */
+      }
+       .logo {
+           text-align: center; /* Center logo text */
+           margin-bottom: var(--spacing-sm);
+       }
+       .theme-toggle-button {
+           align-self: flex-end; /* Put toggle top right */
+           margin-left: 0;
+           margin-bottom: var(--spacing-sm);
+       }
+       .main-nav {
+          margin-top: 0;
+       }
+       #root {
+          padding-left: var(--spacing-md);
+          padding-right: var(--spacing-md);
+       }
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

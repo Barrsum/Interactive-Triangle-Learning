@@ -1,0 +1,40 @@
+/* src/App.css */
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Make sure footer stays at bottom */
+}
+
+.main-nav {
+  padding: 1rem 0;
+  border-bottom: 1px solid #444;
+  margin-bottom: 2rem;
+}
+
+.main-nav a {
+  margin: 0 1rem;
+  font-size: 1.1em;
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.2s ease-in-out;
+}
+
+.main-nav a:hover, .main-nav a.active { /* We might add active class later */
+   color: var(--secondary-color);
+   text-decoration: underline;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 0 2rem; /* Increased horizontal padding slightly */
+}
+
+.App-footer {
+  margin-top: 3rem;
+  padding: 1rem 0;
+  border-top: 1px solid #444;
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+/* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */

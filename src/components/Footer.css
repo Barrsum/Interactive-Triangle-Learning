@@ -1,0 +1,71 @@
+/* src/components/Footer.css */
+
+/* .app-footer layout styles are handled in Layout.css and index.css body */
+
+.app-footer {
+    padding: var(--spacing-lg) var(--spacing-lg);
+    text-align: center;
+    background-color: var(--color-card-bg); /* Match card background */
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--spacing-xl); /* Push content away from footer */
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .social-links {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .social-links a {
+    /* Link color is inherited or set by theme */
+    font-size: 1.8rem; /* Icon size */
+    margin: 0 var(--spacing-md);
+    display: inline-block; /* Allows margin */
+    transition: var(--transition-fast);
+    vertical-align: middle; /* Align icons nicely */
+  }
+  
+  .social-links a svg {
+     color: var(--color-text-light); /* Use light text color for icons */
+     transition: color 0.3s ease;
+  }
+  
+  .social-links a:hover svg {
+    color: var(--color-primary); /* Use primary color on hover */
+  }
+  .social-links a:hover {
+    transform: translateY(-2px); /* Slight lift effect */
+    text-decoration: none;
+  }
+  
+  
+  .connect-text {
+    font-size: 0.9em;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.4;
+    transition: color 0.3s ease;
+  }
+  
+  /* Style links within the connect text */
+  .connect-text a {
+     color: var(--color-primary);
+     font-weight: 500;
+  }
+  .connect-text a:hover {
+      color: var(--color-primary-dark);
+  }
+  
+  
+  .connect-text:last-child {
+      margin-bottom: 0;
+  }
+  
+  /* Specific style for the tutor credit */
+  .tutor-credit {
+      margin-top: var(--spacing-md);
+      font-size: 0.8em;
+      font-style: italic;
+      opacity: 0.7;
+  }
+
+  /* Created by Ram Bapat, www.linkedin.com/in/ram-bapat-barrsum-diamos */
